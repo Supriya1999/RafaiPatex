@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="./../../../assets/Images/final_logo.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Customer Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" routerLink="/employeelogin" routerLinkActive="active">Employee Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<!-- <div class="login-wraper">
+    <div class="login-container">
+
+        <div class="form-wraper">
+            <h3> Customer Login</h3>
+            <form class="login100-form validate-form" [formGroup]="loginForm" novalidate>
+                <div class="form-group">
+                    <span><i class="fa fa-user"></i></span>
+                    <input type="text" placeholder="Mobile No" formControlName="Mobile"
+                        [ngClass]="{'is-invalid': f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)}"
+                        class="form-control" required>
+                    <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                        <div *ngIf="f.Mobile.errors.required">
+                            Please Enter Mobile Number
+                        </div>
+                    </div>
+                    <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                        <div *ngIf="f.Mobile.errors.maxlength">
+                            Please Enter Valid Mobile No.
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" [disabled]="loginForm.invalid" (click)="submitForm()"
+                        class="btn btn-primary">Generate OTP</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="login-logo">
+            <img src="./../../../assets/Images/final_logo.png">
+        </div>
+    </div>
+</div> -->
+
+<div class="row container shadow">
+    <div class="login-intro col-md-6">
+        <div class="overlay">
+        <h1>Welcome to Patex</h1>
+        <p>A one or two line catchy phrase as a part of introduction A one or two line catchy phrase as a part of introduction!!</p>
+        </div>
+    </div>
+    <div class="cust-login-form col-md-6">
+        <div class="form text-center mobileNoDiv" *ngIf="!otpDiv">
+            <h1 style="color: white;"> Enter your mobile number to login</h1>
+            <p>We will send you one time password(OTP)</p>
+            <form [formGroup]="loginForm">
+                <div class="form-group">
+                    <mat-form-field  appearance="fill" class="text-center">
+                        <mat-label>Enter Mobile Number</mat-label>
+                        <input formControlName="Mobile" matInput>
+                        <mat-error *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                            <mat-error *ngIf="f.Mobile.errors.maxlength">
+                                Please Enter Valid Mobile No.
+                            </mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary otp-button" (click)="submitForm()">Send OTP</button>
+            </form>
+            <!-- <form class="login100-form validate-form" [formGroup]="loginForm" novalidate>
+                <div class="form-group">
+                    <span><i class="fa fa-user"></i></span>
+                    <input type="text" placeholder="Mobile No" formControlName="Mobile"
+                        [ngClass]="{'is-invalid': f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)}"
+                        class="form-control" required>
+                    <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                        <div *ngIf="f.Mobile.errors.required">
+                            Please Enter Mobile Number
+                        </div>
+                    </div>
+                    <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                        <div *ngIf="f.Mobile.errors.maxlength">
+                            Please Enter Valid Mobile No.
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" [disabled]="loginForm.invalid" (click)="submitForm()"
+                        class="btn btn-primary">Generate OTP</button>
+                </div>
+
+            </form> -->
+        </div>
+        <div class="form text-center otpDiv" *ngIf="otpDiv">
+            <h1 style="color: white; padding-top: 50px;">Verification Code</h1>
+            <p>We have sent OTP on the number {{_login.Mobile}}</p>
+            <form [formGroup]="loginForm">
+                <div class="form-group">
+                    <ng-otp-input  [formCtrl]="YourFormControl"  [config]="{length:4}"></ng-otp-input>
+                </div>
+                <p>Didn't receive code yet? <b>Resend</b></p>
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary verify-otp-button" (click)="submitForm()">Verify OTP</button>
+            </form>
+        </div>
+    </div>
+</div>
